@@ -5,6 +5,13 @@ export interface IContentSection {
     title: string;
     appendToHeader?: any;
 }
+
+/**
+ * @description renders a content section with a header which you can append elements and pass children
+ * @param title
+ * @param children
+ * @param appendToHeader
+ */
 const ContentSection: React.FC<IContentSection> = ({title, children, appendToHeader = null}) =>{
     return (
         <div className="content__section">
@@ -18,6 +25,6 @@ const ContentSection: React.FC<IContentSection> = ({title, children, appendToHea
             </div>
         </div>
     );
-}
+};
 
 export default ContentSection;

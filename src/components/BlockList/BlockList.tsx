@@ -3,13 +3,7 @@ import "./BlockList.scss";
 import {getBlockList} from "../../services/blockchain_data.service";
 import {Link, useLocation} from "react-router-dom";
 import {LinkButton} from "../Button/Button";
-
-export interface IBlockListBlock {
-    height: number;
-    hash: string;
-    time: number;
-    main_chain: boolean;
-}
+import {IBlockListBlock} from "../block";
 
 /**
  * @description generates the sub headers for Block List item
@@ -54,7 +48,7 @@ const BlockList: React.FC = () => {
         <div>
             <div className="block__list__header">
                 <h3 className="header__title">Blocks</h3>
-                <LinkButton to={"/block/lastest"}>
+                <LinkButton to={"/block/latest"}>
                     View Latest
                 </LinkButton>
             </div>

@@ -2,25 +2,7 @@ import React, {useState} from "react";
 import "./TransactionList.scss";
 import {Button} from "../Button/Button";
 import ContentSection from "../ContentSection/ContentSection";
-
-export interface ITransaction {
-    hash: string;
-    ver: number;
-    vin_sz: number;
-    vout_sz: number;
-    size: number;
-    weight: number;
-    fee: number;
-    relayed_by: string;
-    lock_time: number;
-    tx_index: number;
-    double_spend: boolean;
-    result: number;
-    balance: number;
-    time: number;
-    block_index: number;
-    block_height: number;
-}
+import {ITransaction, Transactions} from "../block";
 
 /**
  * @description renders a Transaction which has the ability to be toggled
@@ -55,7 +37,6 @@ export const Transaction: React.FC<ITransaction> = (props) => {
     );
 };
 
-type Transactions = { transactions: ITransaction[] };
 /**
  * @description generates a list of all transactions provided
  * @param {Transactions} transactions
@@ -63,7 +44,7 @@ type Transactions = { transactions: ITransaction[] };
 const TransactionList: React.FC<Transactions> = ({transactions}) => {
     return (
         <div className="transaction__list">
-            {transactions.map(transaction => {
+            {transactions.map((transaction: ITransaction) => {
                 return (<Transaction key={transaction.hash} {...transaction}/>);
             })}
         </div>

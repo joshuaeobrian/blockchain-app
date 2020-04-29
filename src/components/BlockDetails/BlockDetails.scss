@@ -8,8 +8,6 @@
     color: lighten($dark-font, 5%);
 }
 
-
-
 .block__details {
     height: 89.99vh;
     overflow-y: auto;
@@ -25,8 +23,12 @@
         }
     }
     &_summary {
-        div {
-            margin: 5px 2px;
+        .block__list__block_value{
+            font-size: .9em;
+            .block_value_text{
+                padding-left: 5px;
+                color: $med-blue;
+            }
         }
     }
 }

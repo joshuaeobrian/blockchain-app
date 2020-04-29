@@ -8,25 +8,12 @@ import ContentSection from "../ContentSection/ContentSection";
 import TransactionList from "../TransactionList/TransactionList";
 import Pagination from "../Pagination/Pagination";
 import Loading from "../Loading/Loading";
+import {BlockValue} from "../BlockList/BlockList";
+import {IBlock} from "../block";
 
-interface IBlock {
-    hash: string;
-    ver: number;
-    prev_block: string;
-    mrkl_root: string;
-    time: number;
-    bits: number;
-    nonce: number;
-    n_tx: number;
-    size: number;
-    block_index: number;
-    main_chain: boolean;
-    height: number;
-    received_time: number;
-    relayed_by: string;
-    tx: any[];
-}
-
+/**
+ * @description renders the details of a single block
+ */
 const BlockDetails: React.FC = () => {
     const {blockHash} = useParams();
     const isLatest = blockHash === "latest";
@@ -42,7 +29,8 @@ const BlockDetails: React.FC = () => {
                 setCurrentPage(block.n_tx > 0? 1 : 0);
             });
         if (isLatest) {
-            getLatestBlock().then(block => getBlockInfo(block.hash));
+            getLatestBlock().then(block =>
+                getBlockInfo(block.hash));
         } else {
             getBlockInfo(blockHash);
         }
@@ -60,16 +48,17 @@ const BlockDetails: React.FC = () => {
             <ContentSection title={"Block Details:"}>
                 <h4 className="block__details__header_hash">Hash: {currentBlock.hash}</h4>
                 <div className="block__details_summary">
-                    <div>Time: {currentBlock.time}</div>
-                    <div>Relayed By: {currentBlock.relayed_by || "unknown"}</div>
-                    <div>Received Time: {currentBlock.received_time || "unknown"}</div>
-
-                    <div>Block Index: {currentBlock.block_index}</div>
-                    <div>Block Size: {currentBlock.size}</div>
-                    <div>Previous Block:
-                        <Link to={`/block/${currentBlock.prev_block}`}>{currentBlock.prev_block}</Link>
-                    </div>
-                    <div>Number of Transactions: {currentBlock.n_tx}</div>
+                    <BlockValue title={"Time"}>{currentBlock.time}</BlockValue>
+                    <BlockValue title={"Relayed By"}>{currentBlock.relayed_by}</BlockValue>
+                    <BlockValue title={"Received Time"}>{currentBlock.received_time}</BlockValue>
+                    <BlockValue title={"Block Index"}>{currentBlock.block_index}</BlockValue>
+                    <BlockValue title={"Block Size"}>{currentBlock.size}</BlockValue>
+                    <BlockValue title={"Previous Block"}>
+                        <Link to={`/block/${currentBlock.prev_block}`}>
+                            {currentBlock.prev_block}
+                        </Link>
+                    </BlockValue>
+                    <BlockValue title={"Number of Transactions"}>{currentBlock.n_tx}</BlockValue>
                 </div>
             </ContentSection>
             <ContentSection title={"Transactions:"} appendToHeader={(

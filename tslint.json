@@ -12,7 +12,7 @@
         ],
         "cyclomatic-complexity": [
             true,
-            15
+            10
         ],
         "ordered-imports": false,
         "member-access": false,
@@ -27,7 +27,7 @@
         "triple-equals": true,
         "max-file-line-count": [
             true,
-            500
+            100
         ],
         "max-classes-per-file": [
             true,
@@ -88,7 +88,8 @@
     "rulesDirectory": [],
     "linterOptions": {
         "exclude": [
-            "./**/**/*.test.tsx"
+            "./**/**/*.test.tsx",
+            "./src/serviceWorker.ts"
         ]
     }
 }
