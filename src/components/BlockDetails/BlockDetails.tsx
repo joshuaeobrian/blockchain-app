@@ -11,10 +11,12 @@ import Loading from "../Loading/Loading";
 import {BlockValue} from "../BlockList/BlockList";
 import {IBlock} from "../block";
 
-export const getTime = (time: number) => time && new Date(time).toLocaleTimeString(undefined, {
+export const getTime = (time: number) => time && new Date(time*1000).toLocaleString(undefined, {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
     hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
+    minute: '2-digit'
 });
 
 /**
