@@ -30,4 +30,7 @@
     &:focus {
         outline:none;
     }
+    &:disabled {
+        opacity: .6;
+    }
 }

@@ -20,9 +20,9 @@ const Pagination: React.FC<IPagination> = ({current, pages, onClick}) => {
     const handleNext = () => onClick(current + 1);
     return (
         <div className="pagination">
-            <Button onClick={handlePrev} type="secondary">Prev</Button>
+            <Button onClick={handlePrev} type="secondary" disabled={current <=1}>Prev</Button>
             <span>{current} of {pages}</span>
-            <Button onClick={handleNext} type="secondary">Next</Button>
+            <Button onClick={handleNext} type="secondary" disabled={pages === current}>Next</Button>
         </div>
     );
 };
