@@ -4,6 +4,7 @@ import {getBlockList} from "../../services/blockchain_data.service";
 import {Link, useLocation} from "react-router-dom";
 import {LinkButton} from "../Button/Button";
 import {IBlockListBlock} from "../block";
+import {getTime} from "../BlockDetails/BlockDetails";
 
 /**
  * @description generates the sub headers for Block List item
@@ -31,7 +32,7 @@ export const Block: React.FC<IBlockListBlock> = ({height, hash, time}) => {
         <Link className={`block__list__block${isActive ? " active" : ""}`} to={`/block/${hash}`}>
             <BlockValue title={"Hash"}>{hash}</BlockValue>
             <BlockValue title={"Height"}>{height}</BlockValue>
-            <BlockValue title={"Time"}>{time}</BlockValue>
+            <BlockValue title={"Time"}>{getTime(time)}</BlockValue>
         </Link>
     );
 };

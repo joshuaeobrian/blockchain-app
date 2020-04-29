@@ -11,6 +11,12 @@ import Loading from "../Loading/Loading";
 import {BlockValue} from "../BlockList/BlockList";
 import {IBlock} from "../block";
 
+export const getTime = (time: number) => time && new Date(time).toLocaleTimeString(undefined, {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+});
+
 /**
  * @description renders the details of a single block
  */
@@ -48,9 +54,9 @@ const BlockDetails: React.FC = () => {
             <ContentSection title={"Block Details:"}>
                 <div className="block__details_summary">
                     <BlockValue title={"Hash"}>{currentBlock.hash}</BlockValue>
-                    <BlockValue title={"Time"}>{currentBlock.time}</BlockValue>
+                    <BlockValue title={"Time"}>{getTime(currentBlock.time)}</BlockValue>
+                    <BlockValue title={"Received Time"}>{getTime(currentBlock.received_time)}</BlockValue>
                     <BlockValue title={"Relayed By"}>{currentBlock.relayed_by}</BlockValue>
-                    <BlockValue title={"Received Time"}>{currentBlock.received_time}</BlockValue>
                     <BlockValue title={"Block Index"}>{currentBlock.block_index}</BlockValue>
                     <BlockValue title={"Block Size"}>{currentBlock.size}</BlockValue>
                     <BlockValue title={"Previous Block"}>

@@ -4,6 +4,7 @@ import {Button} from "../Button/Button";
 import ContentSection from "../ContentSection/ContentSection";
 import {ITransaction, Transactions} from "../block";
 import { BlockValue } from "../BlockList/BlockList";
+import {getTime} from "../BlockDetails/BlockDetails";
 
 /**
  * @description renders a Transaction which has the ability to be toggled
@@ -23,8 +24,8 @@ export const Transaction: React.FC<ITransaction> = (props) => {
                 <ContentSection title={"Details:"}>
                     <div className="transaction__details">
                         <BlockValue title={"Block Height"}>{props.block_height}</BlockValue>
-                        <BlockValue title={"Time"}>{props.time}</BlockValue>
-                        <BlockValue title={"Lock Time"}>{props.lock_time}</BlockValue>
+                        <BlockValue title={"Time"}>{getTime(props.time)}</BlockValue>
+                        <BlockValue title={"Lock Time"}>{getTime(props.lock_time)}</BlockValue>
                         <BlockValue title={"Relayed By"}>{props.relayed_by}</BlockValue>
                         <BlockValue title={"Fee"}>{props.fee}</BlockValue>
                         <BlockValue title={"Balance"}>{props.balance}</BlockValue>
