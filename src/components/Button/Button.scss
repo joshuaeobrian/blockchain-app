@@ -1,0 +1,33 @@
+@import "src/global";
+@mixin onHover($background, $color){
+    &:hover {
+        background: $background;
+        border-color: $color;
+        color: $color;
+    }
+}
+
+.btn{
+    background: transparent;
+    margin: 5px;
+    color: $light-font;
+    border-radius: 4px;
+    border: 1px solid $light-font;
+    padding: 5px 10px;
+    text-decoration: none;
+    @include onHover(darken($black, 3%), $med-blue);
+    &-primary {
+        border-color: $med-blue;
+        color: $med-blue;
+        @include onHover($med-blue, $light-font);
+    }
+    &-secondary {
+        border-color: $orange;
+        color: $orange;
+        @include onHover($orange, $light-font);
+    }
+
+    &:focus {
+        outline:none;
+    }
+}

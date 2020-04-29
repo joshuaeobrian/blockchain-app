@@ -1,0 +1,15 @@
+.pagination{
+    &.left {
+        margin-right: auto;
+    }
+    .right {
+        margin-left: auto;
+    }
+    .center {
+        margin: auto;
+    }
+    .btn {
+        padding: 2px 10px;
+        margin: 2px 10px;
+    }
+}

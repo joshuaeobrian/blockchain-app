@@ -1,0 +1,46 @@
+@import "global";
+
+/**
+   Heading Styling
+ */
+.header {
+    width: 100%;
+    height: 3em;
+    background: $dark-blue;
+    color: $light-font;
+    &__title{
+        margin: 0;
+        padding: .5em .5em;
+        width: fit-content;
+        font-weight: bold;
+        &.right{
+            margin-left: auto;
+        }
+    }
+}
+
+/**
+  Content container for Main App
+ */
+.content {
+    &__left{
+        width: 25%;
+        background: $black;
+        position: fixed;
+        height: 100%;
+    }
+    &__right{
+        margin-left: 25%;
+    }
+}
+
+.app {
+    position: fixed;
+    top: 25%;
+    left: 55%;
+    &__info{
+        margin: 0 auto;
+        text-align: center;
+        color: $dark-font;
+    }
+}
