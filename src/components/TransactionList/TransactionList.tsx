@@ -3,6 +3,7 @@ import "./TransactionList.scss";
 import {Button} from "../Button/Button";
 import ContentSection from "../ContentSection/ContentSection";
 import {ITransaction, Transactions} from "../block";
+import { BlockValue } from "../BlockList/BlockList";
 
 /**
  * @description renders a Transaction which has the ability to be toggled
@@ -15,21 +16,21 @@ export const Transaction: React.FC<ITransaction> = (props) => {
     return (
         <div className="transaction">
             <div className="transaction__summary">
-                <h4 className="transaction__summary_hash">Hash: {props.hash}</h4>
+                <BlockValue title={"Hash"}>{props.hash}</BlockValue>
                 <Button type={"primary"} onClick={handleClick}>View</Button>
             </div>
             {showDetails && (
                 <ContentSection title={"Details:"}>
                     <div className="transaction__details">
-                        <div>Block Height: {props.block_height}</div>
-                        <div>Time: {props.time}</div>
-                        <div>Lock Time: {props.lock_time}</div>
-                        <div>Relayed By: {props.relayed_by}</div>
-                        <div>Fee: {props.fee}</div>
-                        <div>Balance: {props.balance}</div>
-                        <div>Size: {props.size}</div>
-                        <div>Weight: {props.weight}</div>
-                        <div>Result: {props.result}</div>
+                        <BlockValue title={"Block Height"}>{props.block_height}</BlockValue>
+                        <BlockValue title={"Time"}>{props.time}</BlockValue>
+                        <BlockValue title={"Lock Time"}>{props.lock_time}</BlockValue>
+                        <BlockValue title={"Relayed By"}>{props.relayed_by}</BlockValue>
+                        <BlockValue title={"Fee"}>{props.fee}</BlockValue>
+                        <BlockValue title={"Balance"}>{props.balance}</BlockValue>
+                        <BlockValue title={"Size"}>{props.size}</BlockValue>
+                        <BlockValue title={"Weight"}>{props.weight}</BlockValue>
+                        <BlockValue title={"Result"}>{props.result}</BlockValue>
                     </div>
                 </ContentSection>
             )}

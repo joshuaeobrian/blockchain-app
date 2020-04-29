@@ -46,8 +46,8 @@ const BlockDetails: React.FC = () => {
     return (
         <div className="block__details">
             <ContentSection title={"Block Details:"}>
-                <h4 className="block__details__header_hash">Hash: {currentBlock.hash}</h4>
                 <div className="block__details_summary">
+                    <BlockValue title={"Hash"}>{currentBlock.hash}</BlockValue>
                     <BlockValue title={"Time"}>{currentBlock.time}</BlockValue>
                     <BlockValue title={"Relayed By"}>{currentBlock.relayed_by}</BlockValue>
                     <BlockValue title={"Received Time"}>{currentBlock.received_time}</BlockValue>
